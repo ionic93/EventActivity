@@ -1,20 +1,29 @@
 package com.example.eventactivity;
 
-import static java.sql.DriverManager.println;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.GestureDetector;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
         TextView textView;
         GestureDetector detector;
         ScrollView sv;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Toast.makeText(this, "시스템 [Back] 버튼이 눌러졌습니다.",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return false;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
